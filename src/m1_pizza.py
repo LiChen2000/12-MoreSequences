@@ -30,10 +30,10 @@ def main():
     #        RE-commenting out the previous test to reduce the output.
     # -------------------------------------------------------------------------
 
-    run_test_generate_points_on_circle()
+    # run_test_generate_points_on_circle()
     # run_test_draw_points_on_circle()
     # run_test_pizza()
-    # run_test_polygon()
+    run_test_polygon()
     # run_test_fancy_polygon()
 
 
@@ -54,6 +54,10 @@ def run_test_generate_points_on_circle():
     print('Testing the   generate_points_on_circle   function:')
     print('--------------------------------------------------')
 
+
+
+
+
     # Test 1:
     expected = [rg.Point(125.0, 50.0),  # All numbers are approximate.
                 rg.Point(112.5, 71.7),
@@ -63,6 +67,17 @@ def run_test_generate_points_on_circle():
                 rg.Point(112.5, 28.3)]
     circle = rg.Circle(rg.Point(100, 50), 25)
     answer = generate_points_on_circle(circle, 6)
+
+    print('Expected:', expected)
+    print('Actual:  ', answer)
+
+    # Test 2:
+    expected = [rg.Point(100, 250),  # All numbers are approximate.
+                rg.Point(150, 300),
+                rg.Point(100, 350),
+                rg.Point(50, 300)]
+    circle = rg.Circle(rg.Point(100, 300), 50)
+    answer = generate_points_on_circle(circle, 4)
 
     print('Expected:', expected)
     print('Actual:  ', answer)
@@ -225,7 +240,19 @@ def draw_points_on_circle(window, circle, number_of_points, color):
     #
     # Your professor may do this exercise with you as "live coding".
     # -------------------------------------------------------------------------
-
+    window
+    circle
+    number_of_points
+    color
+    circle.attach_to(window)
+    points = generate_points_on_circle(circle, number_of_points)
+    for k in range(len(points)):
+        center = points[k]
+        circle = rg.Circle(center, 10)
+        circle.fill_color = color
+        circle.attach_to(window)
+        center.attach_to(window)
+        window.render()
 
 def run_test_pizza():
     """ Tests the   pizza   function. """
@@ -313,6 +340,24 @@ def pizza(window, circle, number_of_slices, color, thickness):
     #    (defined above) to generate the relevant points,
     #    and then draw lines that are based in part on those points.
     # -------------------------------------------------------------------------
+    window
+    circle
+    number_of_slices
+    color
+    thickness
+    circle.attach_to(window)
+    points = generate_points_on_circle(circle, number_of_slices)
+    for k in range(len(points)):
+        center = circle.center
+        pointon = points[k]
+        line = rg.Line(pointon, center)
+        line.color = color
+        line.thickness = thickness
+        line.attach_to(window)
+        window.render()
+
+
+
 
 
 def run_test_polygon():
@@ -391,6 +436,24 @@ def polygon(window, circle, number_of_segments, color, thickness):
     #    (defined above) to generate the relevant points,
     #    and then draw lines that are based in part on those points.
     # -------------------------------------------------------------------------
+
+    window
+    circle
+    number_of_segments
+    color
+    thickness
+    circle.attach_to(window)
+    points = generate_points_on_circle(circle, number_of_segments)
+    for k in range(len(points)):
+        line = rg.Line(points[k], points[k-1])
+        line.thickness = thickness
+        line.color = color
+
+
+        line.attach_to(window)
+        window.render()
+
+
 
 
 def run_test_fancy_polygon():
@@ -517,6 +580,13 @@ def fancy_polygon(window, circle, number_of_lines, hops_to_next_point, color,
     #       appropriately.  ASK YOUR INSTRUCTOR FOR AN EXAMPLE.
     ###########################################################################
     # -------------------------------------------------------------------------
+
+    window
+    circle
+    number_of_lines
+    hops_to_next_point
+    color
+    thickness
 
 
 # -----------------------------------------------------------------------------

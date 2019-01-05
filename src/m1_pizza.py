@@ -33,8 +33,8 @@ def main():
     # run_test_generate_points_on_circle()
     # run_test_draw_points_on_circle()
     # run_test_pizza()
-    run_test_polygon()
-    # run_test_fancy_polygon()
+    # run_test_polygon()
+    run_test_fancy_polygon()
 
 
 def run_test_generate_points_on_circle():
@@ -332,7 +332,7 @@ def pizza(window, circle, number_of_slices, color, thickness):
       :type thickness:        int
     """
     # -------------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPLEMENTATION REQUIREMENT:
@@ -587,6 +587,11 @@ def fancy_polygon(window, circle, number_of_lines, hops_to_next_point, color,
     hops_to_next_point
     color
     thickness
+
+
+
+
+
 
 
 # -----------------------------------------------------------------------------

@@ -6,8 +6,8 @@ one item at a time, using the ACCUMULATOR pattern.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Chen Li.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -281,7 +281,7 @@ def draw_shapes(shapes, window):
       :type window:  rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 9. Implement and test this function.
+    # DONE: 9. Implement and test this function.
     #             *** Make sure you do _TODO_ 8 in main first! ***
     # The testing code is already written for you; you enabled it via _TODO_ 8.
     #
@@ -296,7 +296,9 @@ def draw_shapes(shapes, window):
     shapes
     window
     for k in range(len(shapes)):
-        circles = rg.Circle(k)
+        shapes[k].attach_to(window)
+
+    window.render(0.3)
 
 
 
@@ -411,6 +413,15 @@ def rectangles_from_circles(circles):
     #            in this function, so DON'T draw anything in here!
     ###########################################################################
     # -------------------------------------------------------------------------
+
+    circles
+    rect = []
+    for k in range(len(circles)):
+        square = rg.Square(circles[k].center, circles[k].radius*2)
+        rect = rect + [square]
+
+    return rect
+
 
 
 # -----------------------------------------------------------------------------
